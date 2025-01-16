@@ -1,0 +1,195 @@
+{% extends 'app/base.html' %}
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% load static %}
+<title>Travelaholic</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/main.css' %}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--<script src="js/jquery.easydropdown.js"></script>-->
+<!--start slider -->
+<link rel="stylesheet" href="{% static 'css/fwslider.css' %}" media="all">
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/fwslider.js' %}"></script>
+<!--end slider -->
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+</head>
+
+<body>
+{% block start %}
+  <section class="form-payment" style="margin-top:30px;padding:50px; line-height:30px;">
+
+	<div class="container">
+      <form id="bookingForm" action="http://127.0.0.1:8000/confirm/{{ package.uuid }}" style="margin-top: 30px" method="POST">
+        {% csrf_token %}
+          <div class="row">
+          <div class="col-sm-6">
+            <h3>Billing Address</h3>
+              <br>
+            <h3><label for="pkgname"><i class="fa "></i> Package: {{ package.package_name }} </label>
+            <label for="pkgprice"><i class="fa"></i> ${{ package.package_price }} </label>
+            </h3><br>
+            <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''"
+                                       onblur="this.placeholder = 'Enter your name'"
+                                       class="common-input mb-20 form-control" required="" type="text">
+
+                                <label style="margin-right: 62px;">
+                                    <input type="radio" name="gender" value="male" style="margin-right: 7px;">Male
+                                </label>
+                                <label style="margin-right: 46px;">
+                                    <input type="radio" name="gender" value="female" style="margin-right: 7px;">Female
+                                </label>
+                                <label style="margin-right: 46px;">
+                                    <input type="radio" name="gender" value="other" style="margin-right: 7px;">Other
+                                </label>
+
+
+{#                                <input mobile ="mobile" placeholder="Mobile"#}
+{#                                       pattern="[0-9.-]"#}
+{#                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Eg. 437-278-0987'"#}
+{#                                       class="common-input mb-20 form-control" required="" type="mobile">#}
+                                <input class="common-input mb-20 form-control" type="tel"
+                                       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                       onfocus="this.placeholder"
+                                       placeholder="Mobile" required>
+
+
+                                <input name="email" placeholder="Enter email address"
+                                       pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'"
+                                       class="common-input mb-20 form-control" required="" type="email">
+
+{#                                  <label for="quantity">Quantity (between 1 and 5):</label>#}
+{#                                  <input type="number" id="quantity" name="quantity" min="1" max="500" placeholder="parth" size="500">#}
+
+                                  <input type="number" name="people" id="quantity" placeholder="Number of people" onfocus="this.placeholder = ''"
+                                       onblur="this.placeholder = 'Number of people'"
+                                       class="common-input mb-20 form-control" required="">
+
+{#                                <input name="address" placeholder="Enter address" onfocus="this.placeholder = ''"#}
+{#                                       pattern="[0-9A-Za-z0-9]"#}
+{#                                       onblur="this.placeholder = 'Enter address'"#}
+{#                                       class="common-input mb-20 form-control" required="" type="text">#}
+                            </div>
+{#                            <div class="col-lg-6 form-group">#}
+{#                                <textarea class="common-textarea form-control" name="message"#}
+{#                                          placeholder="Enter Messege" onfocus="this.placeholder = ''"#}
+{#                                          onblur="this.placeholder = 'Enter Messege'" required=""></textarea>#}
+{#                            </div>#}
+                            </div>
+                                <div class="form-group mb-0">
+                                    <div class="custom-control custom-checkbox" style="margin: 0px;">
+                                        <input required="" type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                                        <label class="custom-control-label" for="exampleCheck1" style="margin-right: 496px;margin-top: -2px;">I agree to the <a href="#">terms of service</a>.</label>
+                                    </div>
+                            <div class="col-lg-12">
+                                <div class="alert-msg" style="text-align: left;"></div>
+                                <button name="btnS" class="genric-btn primary" style="float: right;margin-top: 20px;margin-right: 760px;" type="submit">BOOK NOW</button>
+                            </div>
+                        </div>
+
+{#			<div class="col-sm-6">#}
+{##}
+{#              <h3>Payment</h3>#}
+{#              <label for="fname">Accepted Cards</label>#}
+{#                  <div class="social">#}
+{#                      <i class="fa fa-cc-visa" style="color:navy;"></i>#}
+{#                      <i class="fa fa-cc-amex" style="color:blue;"></i>#}
+{#                      <i class="fa fa-cc-mastercard" style="color:red;"></i>#}
+{#                      <i class="fa fa-cc-discover" style="color:orange;"></i>#}
+{##}
+{#                      <br>#}
+{##}
+{##}
+{#            <label for="cname">Name on Card</label><br>#}
+{#            <input type="text" id="cname" name="cardname" placeholder="John More Doe"><br>#}
+{##}
+{##}
+{##}
+{#            <label for="ccnum">Credit card number</label><br>#}
+{#            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"><br>#}
+{##}
+{##}
+{##}
+{#            <label for="expmonth">Exp Month</label><br>#}
+{#            <input type="text" id="expmonth" name="expmonth" placeholder="September"><br>#}
+{##}
+{#            <!--<div class="row">-->#}
+{#              <!--<div class="col-50">-->#}
+{##}
+{#                <label for="expyear">Exp Year</label><br>#}
+{#                <input type="text" id="expyear" name="expyear" placeholder="2019"><br>#}
+{##}
+{##}
+{#              <!--<div class="col-50">-->#}
+{##}
+{#                <label for="cvv">CVV</label><br>#}
+{#                <input type="text" id="cvv" name="cvv" placeholder="XXX"><br>#}
+{#                      <br>#}
+{##}
+{#      </div>#}
+{#              </div>#}
+{#        </div>#}
+{#          <button id="submitButton" >BOOK NOW</button>#}
+      </form>
+
+</div>
+
+
+<p id="demo"></p>
+
+
+
+<script>
+function myFunction() {
+
+  document.getElementById("demo").innerHTML = "PAYMENT IS DISABLED DUE TO SECURITY REASONS ";
+}
+</script>
+
+
+  </section>
+
+
+{% endblock %}
+</body>
+</html>

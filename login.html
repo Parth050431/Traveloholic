@@ -1,0 +1,82 @@
+<html lang="zxx" class="no-js">
+{% load static %}
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/staticfiles/img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Travel</title>
+    {% block start %}
+        <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/linearicons.css' %}" rel="stylesheet">
+        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+        <link href="{% static 'css/jquery-ui.css' %}" rel="stylesheet">
+        <link href="{% static 'css/nice-select.css' %}" rel="stylesheet">
+        <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+        <link href="{% static 'css/main.css' %}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+<div class="banner-area" style="padding: 100px; margin: fill">
+    <div class="relative text-white container">
+        <form method="POST">
+            {% csrf_token %}
+            {% include 'app/messages.html' %}
+            <div class="banner-left" style="text-align: center">
+                <h6 class="text-white">Take some time off your busy life</h6>
+                <h1 class="text-white">Traveloholic</h1>
+                <p class="text-white">
+                    We take care of your travel and do our best to make sure you get the best journey
+                </p>
+                <h3 class="h3 text-white">It's Time To Travel Canada</h3><br><br>
+
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input type="text" name="username" required class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            </div>
+{#            <p style="color: white;font-weight:600">Don't have an account ? Create one <a style="color: darkblue" href="{% url 'app:register_page' %}">here</a>#}
+{#            </p>#}
+            <button type="submit" style="alignment-baseline: center" class="primary-btn text-uppercase">Login</button>
+        </form>
+        <p><a href="{% url 'app:password_reset' %}" style="color: white;font-weight: 500;">Forgot password?</a></p>
+    </div>
+</div>
+<!-- End footer Area -->
+<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/mail-script.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'js/superfish.min.js' %}"></script>
+<script src="{% static 'js/hoverIntent.js' %}"></script>
+<script src="{% static 'js/easing.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+
+</body>
+</html>

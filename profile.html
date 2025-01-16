@@ -1,0 +1,26 @@
+{% extends "app/base.html" %}
+{% block title %}User Profile{% endblock title %}
+{% block start %}
+    <section class="relative about-banner">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">
+                        User profile
+                    </h1>
+                    <p class="text-white link-nav"><a href="{% url 'app:index' %}">Home </a> <span
+                            class="lnr lnr-arrow-right"></span> <a href={% url 'app:contact' %}> Contact Us</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid contact-page-area section-gap">
+        <div class=" display-2 row my-3 p-3">
+            <h1>Hello, {{ user.username }}</h1>
+        </div>
+        <div class="row my-3 p-3">
+            <h1>email id: {{ user.email }}</h1>
+        </div>
+    </section>
+{% endblock %}

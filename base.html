@@ -1,0 +1,109 @@
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Traveloholic</title>
+    {#    {% load static %}#}
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/linearicons.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jquery-ui.css' %}" rel="stylesheet">
+    <link href="{% static 'css/nice-select.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+    <script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/mail-script.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/superfish.min.js' %}"></script>
+    <script src="{% static 'js/hoverIntent.js' %}"></script>
+    <script src="{% static 'js/easing.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+</head>
+<body>
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/staticfiles/img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Travel</title>
+
+</head>
+<body>
+<header id="header">
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div>
+                    <ul>
+                        <li><a href="{% url 'app:package' %}">View the packages Directly</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="{% url 'app:index' %}" class="text-white" style="font-size: 20px">Traveloholic </a>
+{#                <a href="index.html"><img src="/staticfiles/img/traveloholic.png" height="50px" width="70px" alt="" title=""/></a>#}
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a href="{% url 'app:index' %}">Home</a></li>
+                    <li><a href="{% url 'app:about' %}">About</a></li>
+                    <li><a href="{% url 'app:package' %}">Packages</a></li>
+                    <li><a href="{% url 'app:hotels' %}">Hotels</a></li>
+                    <li><a href="{% url 'app:contact' %}">Contact</a></li>
+                    <li><a href="{% url 'app:users-profile' %}">User Profile</a></li>
+                       <li><a href="{% url 'app:logout' %}">Logout</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header><!-- #header -->
+</body>
+{% block start %}
+    ***
+{% endblock %}
+
+    <!-- start footer Area -->
+    <footer class="footer-area section-gap">
+        <div class="container">
+
+            <div class="row">
+                    <div class="single-footer-widget">
+                        <h6>About Agency</h6>
+                        <p>
+                            The world has become so fast paced that people don’t want to stand by reading a page of
+                            information, they would much rather look at a presentation and understand the message. It
+                            has come to a point
+                        </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

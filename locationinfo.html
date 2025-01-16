@@ -1,0 +1,94 @@
+{% extends 'app/base.html' %}
+
+    <!DOCTYPE html>
+    <html lang="zxx" class="no-js">
+
+{% block start %}
+    <!-- start banner Area -->
+    <section class="about-banner relative">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">
+                        About Quebec
+                    </h1>
+{#                    <p class="text-white link-nav"><a href="index.html">Home </a> <span#}
+{#                            class="lnr lnr-arrow-right"></span> <a href="about.html"> About Us</a></p>#}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner Area -->
+
+    <!-- Start about-info Area -->
+    <section class="about-info-area section-gap" >
+        <div class="container" style="padding-top: 20px" >
+            <div class="row align-items-center">
+                <div class="col-lg-6 info-left">
+                    <img class="img-fluid" src="/staticfiles/img/locationinfo/L3.jpg" alt="">
+                </div>
+                <div class="col-lg-6 info-right">
+                    <h6>About Citadelle de Quebec</h6>
+                    <h1>Some Interesting Insight</h1>
+                    <p>
+                        This National Historic Site is located atop Cap Diamant in Old Québec.
+                        Known as "the Gibraltar of the Americas" for its strategic location,
+                        the Citadel has the star-shaped form characteristic of Vauban fortifications.
+                        Breathtaking view of the city and the St. Lawrence River.
+                    </p>
+                    <h3 class="h3">"Enjoy the view with your Beau"</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Start about-info Area -->
+    <section class="about-info-area section-gap">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 info-right">
+                    <h6>About Château Frontenac</h6>
+                    <h1>Some Interesting Insight</h1>
+                    <p>
+                        The Château Frontenac is one of Canada’s excellent railroad inns.
+                        The Château was formally recognised as a National Historic Site of Canada.
+                        It is also a UNESCO World Heritage Site.
+                    </p>
+                    <h3 class="h3">"Feel an exquisite hint of Europe"</h3>
+                </div>
+                <div class="col-lg-6 info-left">
+                    <img class="img-fluid" src="/staticfiles/img/locationinfo/L4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+{#                            <div class="col-lg-12">#}
+{#                                {% for package_obj in package_objs %}#}
+                                <div class="alert-msg" style="text-align: left;"></div>
+{#                                    <ul class="package-list">#}
+{#                                    <li class="d-flex justify-content-between align-center">#}
+{#                                    <a href="{% url 'app:booking' package_obj.uuid %}" class="Book Now-btn" style="background: #808B96; margin-left: 126px;padding: 4px;color: white;">Book Now</a>#}
+{#                                    </li> </ul>#}
+                                <button  name="btnS" class="genric-btn primary" style="float: right;margin-top: 25px;margin-right: 1000px;" type="submit">BOOK NOW</button>
+
+{#                                {% endfor %}#}
+{#                            </div>#}
+    </section>
+
+
+    <!-- End about-info Area -->
+
+    <!-- Start testimonial Area -->
+
+{#                                    <li class="d-flex justify-content-between align-center">#}
+{#                                    <a href="{% url 'app:booking' package_obj.uuid %}" class="Book Now-btn" style="background: #808B96; margin-left: 126px;padding: 4px;color: white;">Book Now</a>#}
+{#                                    </li>#}
+    <!-- End testimonial Area -->
+
+    <!-- start footer Area -->
+
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,121 @@
+{% extends 'app/base.html' %}
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+{% block start %}
+    <!-- start banner Area -->
+    <section class="about-banner relative">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">
+                        Hotels
+                    </h1>
+                    <p class="text-white link-nav"><a href="{% url 'app:index' %}">Home </a> <span
+                            class="lnr lnr-arrow-right"></span> <a href="hotels.html"> Hotels</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner Area -->
+    <div class=" px-4  align-items-center" style="padding-left: 100px; padding-right: 100px">
+        <form class="align-items-center">
+            <div class="row mt-3 align-items-center">
+
+                <div class="col-md-2" style="padding-left: 650px">
+                    <div class="form-inline">
+                        <label class="" for="exampleFormControlSelect1">Search</label>
+                        <input name="search" class="form-control" value="{{ search }}" placeholder="Search">
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="row justify-content-md-center col-md-auto">
+        <button style="margin-top: 30px;" type="submit" class="primary-btn text-uppercase">Find</button>
+    </div>
+    <!-- Start destinations Area -->
+    <section class="destinations-area section-gap">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-40 col-lg-8">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Popular Destinations</h1>
+                        <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely
+                            fast</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for hotel_obj in hotel_objs %}
+                    <div class="col-lg-4">
+                        <div class="single-destinations">
+                            <div class="thumb">
+                                <img style="object-fit: cover" height="150" width="349"  src="{{ hotel_obj.url }}" alt=""/>
+                            </div>
+                            <div class="details">
+                                <h4 class="d-flex justify-content-between">
+                                        <span>
+                                        {{ hotel_obj.hotel_name }}
+                                    </span>
+                                </h4>
+                                <p>
+                                    {{ hotel_obj.hotel_city }}, {{ hotel_obj.hotel_provinvce }}
+                                </p>
+                                <ul class="package-list">
+                                    <li class="d-flex justify-content-between align-items-center">
+                                        <span>Hotel Price (Per day)</span>
+                                        <span>
+                                        ${{ hotel_obj.hotel_price }}
+                                    </span>
+                                    </li>
+                                    <li class="d-flex justify-content-between align-items-center">
+                                        <span>Review</span>
+                                        <span>
+                                            {{ hotel_obj.status }}/5
+                                        </span>
+                                    </li>
+                                    <li class="d-flex justify-content-between align-items-center">
+                                        <a href="#" class="price-btn align-content-md-center">Book now</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- End destinations Area -->
+
+
+    <!-- Start home-about Area -->
+    <section class="home-about-area">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-end">
+                <div class="col-lg-6 col-md-12 home-about-left">
+                    <h1>
+                        Did not find your Package? <br>
+                        Feel free to ask us. <br>
+                        We‘ll make it for you
+                    </h1>
+                    <p>
+                        inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct
+                        standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on
+                        the job is beyond reproach. inappropriate behavior is often laughed.
+                    </p>
+                    <a href="{%  url 'app:contact' %}" class="primary-btn text-uppercase">request custom price</a>
+                </div>
+                <div class="col-lg-6 col-md-12 home-about-right no-padding">
+                    <img class="img-fluid" src="/staticfiles/img/hotels/about-img.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End home-about Area -->
+{% endblock %}
+</html>
