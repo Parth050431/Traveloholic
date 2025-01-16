@@ -1,59 +1,23 @@
-from django.urls import path
-from . import views
-from app.views import ResetPasswordView
-from django.conf.urls.static import static
-from django.conf import settings
-from django.contrib.auth import views as auth_views
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+"""Travelaholic URL Configuration
 
-app_name = 'app'
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/4.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path, include
+
 urlpatterns = [
-    path('', views.login_page, name='login'),
-    path('', views.logout_page, name='logout'),
-    path('accounts/login/', views.login_page, name='login'),
-    path('index/', views.index, name="index"),
-    path('index/about/', views.about, name="about"),
-    path('register/', views.register_page, name='register_page'),
-    path('hotels/', views.hotels, name='hotels'),
-    path('index/package/', views.package, name='package'),
-    path('messages/', views.message, name='messages'),
-    path('contact/', views.contact, name='contact'),
-    # path('contact/', views.contact, name='contact'),
-    # path('usermessage/', views.usermessage, name='usermessage'),
-    path('index/payment.html/', views.payment, name='payment'),
-    path('booking/<pkg_id>', views.booking, name='booking'),
-    path(r'locationinfo.html/', views.locationinfo, name='locationinfo'),
-    path(r'locationinfo2.html/', views.locationinfo2, name='locationinfo2'),
-    path("confirm/<pkg_id>", views.confirm, name='confirm'),
-    path('profile/', views.profile, name='users-profile'),
-
-    path('password-reset/',
-         auth_views.PasswordResetView.as_view(
-             template_name='app/registration/password_reset_form.html',
-             subject_template_name='app/registration/password_reset_subject.txt',
-             email_template_name='app/registration/password_reset_email.html',
-             # success_url='/login/'
-         ),
-         name='password_reset'),
-    path('passwordreset/done/',
-         auth_views.PasswordResetDoneView.as_view(
-             template_name='app/registration/password_reset_done.html'
-         ),
-         name='password_reset_done'),
-    path('password-reset-confirm/<uidb64>/<token>/',
-         auth_views.PasswordResetConfirmView.as_view(
-             template_name='app/registration/password_reset_confirm.html'
-         ),
-         name='password_reset_confirm'),
-    path('password-reset-complete/',
-         auth_views.PasswordResetCompleteView.as_view(
-             template_name='app/registration/password_reset_complete.html'
-         ),
-         name='password_reset_complete'),
+    path('admin/', admin.site.urls),
+    path('', include('app.urls')),
+    path('', include('django.contrib.auth.urls')),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
-
-urlpatterns += staticfiles_urlpatterns()
